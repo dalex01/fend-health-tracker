@@ -10,13 +10,16 @@
   <section id="app">
     <header id="header">
       <h1>Calculate Calories</h1>
-      <input id="new-search" placeholder="Search product" autofocus>
     </header>
-    <section id="main">
-        <input id="toggle-all" type="checkbox">
-        <label for="toggle-all">Mark all as complete</label>
+    <section class="container">
+      <div id = "search" class="box left">
+        <input id="new-search" placeholder="Search product" autofocus>
+        <input id="new-search" placeholder="Search product" autofocus>
+      </div>
+      <div id = "main" class="box right">
         <ul id="todo-list"></ul>
-      </section>
+      </div>
+    </section>
   </section>
   <script type="text/template" id="stats-template"></script>
   <script src="js/lib/jquery.min.js"></script>
