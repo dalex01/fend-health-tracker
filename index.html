@@ -7,7 +7,17 @@
   <link rel="stylesheet" href="assets/index.css">
 </head>
 <body>
-
+  <section id="app">
+    <header id="header">
+      <h1>Calculate Calories</h1>
+      <input id="new-search" placeholder="Search product" autofocus>
+    </header>
+    <section id="main">
+        <input id="toggle-all" type="checkbox">
+        <label for="toggle-all">Mark all as complete</label>
+        <ul id="todo-list"></ul>
+      </section>
+  </section>
   <script type="text/template" id="stats-template"></script>
   <script src="js/lib/jquery.min.js"></script>
   <script src="js/lib/underscore-min.js"></script>
