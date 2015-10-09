@@ -167,6 +167,11 @@ input[type="checkbox"] {
 	font-smoothing: antialiased;
 }
 
+#searchMain {
+	border-right: 1px dotted #6A6A6A;
+	border-bottom: 1px dotted #ccc;
+}
+
 /* Ok */
 #new-search {
 	padding: 16px 16px 16px 60px;
@@ -184,6 +189,7 @@ input[type="checkbox"] {
 
 
 #search-list {
+	border-right: 1px dotted #6A6A6A;
 	margin: 0;
 	padding: 0;
 	list-style: none;
