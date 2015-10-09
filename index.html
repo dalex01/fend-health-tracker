@@ -12,22 +12,25 @@
       <h1>Calculate Calories</h1>
     </header>
     <section class="container">
-      <div id = "search" class="box left">
-        <input id="new-search" placeholder="Search product" autofocus>
-        <ul id="search-list"></ul>
-      </div>
-      <div id = "main" class="box right">
+      <section id = "search" class="box left">
+        <header id = "searchMain">
+          <input id="new-search" placeholder="Search product" autofocus>
+        </header>
+        <section id = "searchResults">
+          <ul id="search-list"></ul>
+        </section>
+      </section>
+      <section id = "main" class="box right">
         <ul id="products-list"></ul>
-      </div>
+      </section>
     </section>
   </section>
 
     <script type="text/template" id="item-template">
       <div class="view">
         <label>Product: <%- title %></label>
-        <label>Brand: <%- title %></label>
+        <label>Brand: <%- brand %></label>
       </div>
-      <input class="edit" value="<%- title %>">
     </script>
 
   <script type="text/template" id="stats-template"></script>
@@ -35,10 +38,11 @@
   <script src="js/lib/underscore-min.js"></script>
   <script src="js/lib/backbone-min.js"></script>
   <script src="js/lib/backbone.localStorage.js"></script>
+
   <script src="js/models/searchItem.js"></script>
   <script src="js/collections/searchItems.js"></script>
-  <script src="js/views/searchView.js"></script>
   <script src="js/views/searchItemView.js"></script>
+  <script src="js/views/searchView.js"></script>
   <script src="js/routers/router.js"></script>
   <script src="js/app.js"></script>
 </body>
