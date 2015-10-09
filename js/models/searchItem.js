@@ -12,8 +12,11 @@ var app = app || {};
 		// Default attributes for the todo
 		// and ensure that each todo created has `title` and `completed` keys.
 		defaults: {
-			title: '',
-			brand: '',
+			brand_id: 0,
+			brand_name: '',
+			item_id: 0,
+			item_name: '',
+			nf_calories: 0,
 			choosed: false
 		},
 

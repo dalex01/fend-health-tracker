@@ -53,18 +53,45 @@ var app = app || {};
 
 		// Generate the attributes for a new Search Item.
 		searchProducts: function (e) {
-			return {
-				title: 'title',
-				brand: 'brand',
-				choosed: false
-			};
+			var url = "https://api.nutritionix.com/v1_1/search/" + e + "?results=0%3A20&cal_min=0&cal_max=20&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id%2Cnf_calories&appId=9d3343d7&appKey=4283cbc03da532a49ad58e0048e9418f"
+			$.ajax({
+		        url: url,
+		        dataType: 'json',
+		        success: function(response) {
+		        	var products = [];
+		        	var prArray = response.hits;
+		        	for (var item in prArray) {
+		        		/*products.push({
+		        			brand_id: prArray[item].fields.brand_id,
+		        			brand_name: prArray[item].fields.brand_name,
+		        			item_id: prArray[item].fields.item_id,
+		        			item_name: prArray[item].fields.item_name,
+		        			nf_calories: prArray[item].fields.nf_calories
+		        		});*/
+						app.searchItems.create({
+							brand_id: prArray[item].fields.brand_id,
+		        			brand_name: prArray[item].fields.brand_name,
+		        			item_id: prArray[item].fields.item_id,
+		        			item_name: prArray[item].fields.item_name,
+		        			nf_calories: prArray[item].fields.nf_calories
+						});
+		        	}
+		        	//return products;
+		        },
+		        error: function (xhr, ajaxOptions, thrownError) {
+		        	// alert if ajax request was not executed correctly
+			        alert(xhr.status + ' failed to get Nutritionix resources for search query ' + e + '\nUrl requested: \n' + url);
+			    }
+			});
 		},
 
 	    keyPressedInSearch: function (e) {
-	        if (e.keyCode === ENTER_KEY && this.$search.val().trim()) {
-	        	app.searchItems.create(this.searchProducts(e));
-				this.$search.val('');
-			} else if (e.keyCode === ESC_KEY && this.$search.val().trim()) {
+	    	var searchQuery = this.$search.val().trim();
+	        if (e.keyCode === ENTER_KEY && searchQuery) {
+	        	//app.searchItems.create(this.searchProducts(searchQuery));
+	        	this.searchProducts(searchQuery);
+	        	this.$search.val('');
+			} else if (e.keyCode === ESC_KEY && searchQuery) {
 				this.$search.val('');
 			}
 	    }
