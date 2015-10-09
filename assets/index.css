@@ -22,11 +22,11 @@ button {
 
 /* Ok */
 body {
-	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font: 1em 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	line-height: 1.4em;
 	background: #eaeaea url('bg.png');
 	color: #4d4d4d;
-	width: 800px;
+	width: auto;
 	margin: 0 auto;
 	-webkit-font-smoothing: antialiased;
 	-moz-font-smoothing: antialiased;
@@ -81,7 +81,7 @@ input[type="checkbox"] {
 	position: absolute;
 	top: -120px;
 	width: 100%;
-	font-size: 70px;
+	font-size: 4em;
 	font-weight: bold;
 	text-align: center;
 	color: #b3b3b3;
@@ -92,28 +92,6 @@ input[type="checkbox"] {
 	-ms-text-rendering: optimizeLegibility;
 	-o-text-rendering: optimizeLegibility;
 	text-rendering: optimizeLegibility;
-}
-
-.container {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.box {
-	width: 100%;
-	background: rgba(0, 0, 0, 0.02);
-}
-
-@media screen and (min-width: 800px) {
-	.container {
-  		width: 800px;
-  		margin-right: auto;
-  		margin-left: auto;
-	}
-
-	.left, .right {
-  		width: 50%;
-	}
 }
 
 /* Ok */
@@ -147,7 +125,7 @@ input[type="checkbox"] {
 	position: relative;
 	margin: 0;
 	width: 100%;
-	font-size: 24px;
+	font-size: 1.7em;
 	font-family: inherit;
 	line-height: 1.4em;
 	border: 0;
@@ -197,7 +175,7 @@ input[type="checkbox"] {
 
 #search-list li {
 	position: relative;
-	font-size: 14px;
+	font-size: 1.2em;
 	border-bottom: 1px dotted #ccc;
 }
 
@@ -269,7 +247,7 @@ input[type="checkbox"] {
 	content: '✔';
 	/* 40 + a couple of pixels visual adjustment */
 	line-height: 43px;
-	font-size: 20px;
+	font-size: 1.3em;
 	color: #d9d9d9;
 	text-shadow: 0 -1px 0 #bfbfbf;
 }
@@ -295,6 +273,7 @@ input[type="checkbox"] {
 */
 
 #product {
+	font-size: 1.1em;
 	white-space: pre;
 	word-break: break-word;
 	padding: 10px 60px 2px 15px;
@@ -306,7 +285,7 @@ input[type="checkbox"] {
 }
 
 #brand {
-	font-size: 11px;
+	font-size: 0.9em;
 	white-space: pre;
 	word-break: break-word;
 	padding: 2px 60px 2px 15px;
@@ -319,11 +298,23 @@ input[type="checkbox"] {
 
 #calories {
 	color: #FF0000;
-	font-size: 11px;
+	font-size: 0.9em;
 	white-space: pre;
 	word-break: break-word;
 	padding: 2px 60px 10px 15px;
 	margin-left: 45px;
+	display: block;
+	line-height: 1.2;
+	-webkit-transition: color 0.4s;
+	transition: color 0.4s;
+}
+
+#title {
+	font-size: 1.7em;
+	white-space: pre;
+	word-break: break-word;
+	padding: 22px 15px 15px 15px;
+	text-align: center;
 	display: block;
 	line-height: 1.2;
 	-webkit-transition: color 0.4s;
@@ -661,4 +652,42 @@ hr {
 		width: 550px;
 		margin: 130px auto 40px auto;
 	}
+}
+
+.container {
+	width: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box {
+	width: 100%;
+	background: rgba(0, 0, 0, 0.02);
+}
+
+@media screen and (min-width: 800px) {
+	.container {
+  		margin-right: auto;
+  		margin-left: auto;
+	}
+
+	.left, .right {
+  		width: 50%;
+	}
+}
+
+::-webkit-input-placeholder {
+   text-align:center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align:center;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align:center;
+}
+
+:-ms-input-placeholder {
+   text-align:center;
 }

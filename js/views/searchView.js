@@ -59,14 +59,19 @@ var app = app || {};
 		        dataType: 'json',
 		        success: function(response) {
 		        	var prArray = response.hits;
-		        	for (var item in prArray) {
-						app.searchItems.create({
-							brand_id: prArray[item].fields.brand_id,
-		        			brand_name: prArray[item].fields.brand_name,
-		        			item_id: prArray[item].fields.item_id,
-		        			item_name: prArray[item].fields.item_name,
-		        			calories: prArray[item].fields.nf_calories
-						});
+		        	if (prArray.length) {
+			        	for (var item in prArray) {
+							app.searchItems.create({
+								brand_id: prArray[item].fields.brand_id,
+			        			brand_name: prArray[item].fields.brand_name,
+			        			item_id: prArray[item].fields.item_id,
+			        			item_name: prArray[item].fields.item_name,
+			        			calories: prArray[item].fields.nf_calories
+							});
+						}
+		        	} else {
+		        		$('#searchResults').show();
+		        		$('#search-list').append('<li><div class=\'view\'><label id="product">0 items found. Try again, please</label></div></li>');
 		        	}
 		        	//return products;
 		        },
