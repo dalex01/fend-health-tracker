@@ -191,7 +191,7 @@ input[type="checkbox"] {
 
 #search-list li {
 	position: relative;
-	font-size: 24px;
+	font-size: 14px;
 	border-bottom: 1px dotted #ccc;
 }
 
@@ -275,10 +275,48 @@ input[type="checkbox"] {
 	position: relative;
 }
 
+/*
 #search-list li label {
 	white-space: pre;
 	word-break: break-word;
 	padding: 15px 60px 15px 15px;
+	margin-left: 45px;
+	display: block;
+	line-height: 1.2;
+	-webkit-transition: color 0.4s;
+	transition: color 0.4s;
+}
+*/
+
+#product {
+	white-space: pre;
+	word-break: break-word;
+	padding: 10px 60px 2px 15px;
+	margin-left: 45px;
+	display: block;
+	line-height: 1.2;
+	-webkit-transition: color 0.4s;
+	transition: color 0.4s;
+}
+
+#brand {
+	font-size: 11px;
+	white-space: pre;
+	word-break: break-word;
+	padding: 2px 60px 2px 15px;
+	margin-left: 45px;
+	display: block;
+	line-height: 1.2;
+	-webkit-transition: color 0.4s;
+	transition: color 0.4s;
+}
+
+#calories {
+	color: #FF0000;
+	font-size: 11px;
+	white-space: pre;
+	word-break: break-word;
+	padding: 2px 60px 10px 15px;
 	margin-left: 45px;
 	display: block;
 	line-height: 1.2;

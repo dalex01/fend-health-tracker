@@ -58,22 +58,14 @@ var app = app || {};
 		        url: url,
 		        dataType: 'json',
 		        success: function(response) {
-		        	var products = [];
 		        	var prArray = response.hits;
 		        	for (var item in prArray) {
-		        		/*products.push({
-		        			brand_id: prArray[item].fields.brand_id,
-		        			brand_name: prArray[item].fields.brand_name,
-		        			item_id: prArray[item].fields.item_id,
-		        			item_name: prArray[item].fields.item_name,
-		        			nf_calories: prArray[item].fields.nf_calories
-		        		});*/
 						app.searchItems.create({
 							brand_id: prArray[item].fields.brand_id,
 		        			brand_name: prArray[item].fields.brand_name,
 		        			item_id: prArray[item].fields.item_id,
 		        			item_name: prArray[item].fields.item_name,
-		        			nf_calories: prArray[item].fields.nf_calories
+		        			calories: prArray[item].fields.nf_calories
 						});
 		        	}
 		        	//return products;
@@ -88,7 +80,7 @@ var app = app || {};
 	    keyPressedInSearch: function (e) {
 	    	var searchQuery = this.$search.val().trim();
 	        if (e.keyCode === ENTER_KEY && searchQuery) {
-	        	//app.searchItems.create(this.searchProducts(searchQuery));
+	        	app.searchItems.reset();
 	        	this.searchProducts(searchQuery);
 	        	this.$search.val('');
 			} else if (e.keyCode === ESC_KEY && searchQuery) {
