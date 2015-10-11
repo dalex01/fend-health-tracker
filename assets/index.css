@@ -166,40 +166,47 @@ input[type="checkbox"] {
 }
 
 
-#search-list {
+#search-list,
+#products-list {
 	border-right: 1px dotted #6A6A6A;
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-#search-list li {
+#search-list li,
+#products-list li {
 	position: relative;
 	font-size: 1.2em;
 	border-bottom: 1px dotted #ccc;
 }
 
-#search-list li:last-child {
+#search-list li:last-child,
+#products-list li:last-child {
 	border-bottom: none;
 }
 
-#search-list li.editing {
+#search-list li.editing,
+#products-list li .editing{
 	border-bottom: none;
 	padding: 0;
 }
 
-#search-list li.editing .edit {
+#search-list li.editing .edit,
+#products-list li.editing .edit {
 	display: block;
 	width: 506px;
 	padding: 13px 17px 12px 17px;
 	margin: 0 0 0 43px;
 }
 
-#search-list li.editing .view {
+#search-list li.editing .view,
+#products-list li.editing .view {
 	display: none;
 }
 
-#search-list li .toggle {
+#search-list li .toggle,
+#products-list li .toggle {
 	text-align: center;
 	width: 40px;
 	/* auto, since non-WebKit browsers doesn't support input styling */
@@ -239,11 +246,13 @@ input[type="checkbox"] {
 	display: block;
 }*/
 
-#search-list li .priority-btn:after {
+#search-list li .priority-btn:after,
+#products-list li .priority-btn:after {
 	content: '!';
 }
 
-#search-list li .toggle:after {
+#search-list li .toggle:after,
+#products-list li .toggle:after {
 	content: '✔';
 	/* 40 + a couple of pixels visual adjustment */
 	line-height: 43px;
@@ -252,7 +261,8 @@ input[type="checkbox"] {
 	text-shadow: 0 -1px 0 #bfbfbf;
 }
 
-#search-list li .toggle:checked:after {
+#search-list li .toggle:checked:after,
+#products-list li .toggle:checked:after {
 	color: #85ada7;
 	text-shadow: 0 1px 0 #669991;
 	bottom: 1px;
@@ -314,6 +324,18 @@ input[type="checkbox"] {
 	white-space: pre;
 	word-break: break-word;
 	padding: 22px 15px 15px 15px;
+	text-align: center;
+	display: block;
+	line-height: 1.2;
+	-webkit-transition: color 0.4s;
+	transition: color 0.4s;
+}
+
+#total {
+	font-size: 1.7em;
+	white-space: pre;
+	word-break: break-word;
+	padding: 0px 85px 15px 15px;
 	text-align: center;
 	display: block;
 	line-height: 1.2;

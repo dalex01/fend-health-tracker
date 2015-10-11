@@ -8,7 +8,7 @@ var app = app || {};
 	// --------------
 
 	// The DOM element for a todo item...
-	app.SearchItemView = Backbone.View.extend({
+	app.ResultsItemView = Backbone.View.extend({
 		//... is a list tag.
 		tagName:  'li',
 
@@ -17,7 +17,6 @@ var app = app || {};
 
 		// The DOM events specific to an item.
 		events: {
-			'click .view': 'addProduct'
 		},
 
 		// The TodoView listens for changes to its model, re-rendering. Since
@@ -31,16 +30,6 @@ var app = app || {};
 		render: function () {
 			this.$el.html(this.template(this.model.toJSON()));
 			return this;
-		},
-
-		addProduct: function () {
-			app.resultsItemsCollection.create({
-				item_id: this.model.get('item_id'),
-				item_name: this.model.get('item_name'),
-				brand_id: this.model.get('brand_id'),
-				brand_name: this.model.get('brand_name'),
-				calories: this.model.get('calories')
-			});
 		}
 
 	});

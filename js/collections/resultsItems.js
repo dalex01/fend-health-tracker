@@ -9,9 +9,9 @@ var app = app || {};
 
 	// The collection of todos is backed by *localStorage* instead of a remote
 	// server.
-	var SearchItemsCollection = Backbone.Collection.extend({
+	var ResultsItemsCollection = Backbone.Collection.extend({
 		// Reference to this collection's model.
-		model: app.SearchItemModel,
+		model: app.ResultsItemModel,
 
 		// Save all of the todo items under the `"todos"` namespace.
 		localStorage: new Backbone.LocalStorage('calories-backbone'),
@@ -19,5 +19,5 @@ var app = app || {};
 	});
 
 	// Create our global collection of **Todos**.
-	app.searchItemsCollection = new SearchItemsCollection();
+	app.resultsItemsCollection = new ResultsItemsCollection();
 })();

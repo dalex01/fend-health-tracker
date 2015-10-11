@@ -8,7 +8,7 @@ var app = app || {};
 	// ----------
 
 	// Our basic **Todo** model has `title`, `order`, and `completed` attributes.
-	app.SearchItemModel = Backbone.Model.extend({
+	app.ResultsItemModel = Backbone.Model.extend({
 		// Default attributes for the todo
 		// and ensure that each todo created has `title` and `completed` keys.
 		defaults: {
@@ -17,6 +17,6 @@ var app = app || {};
 			item_id: 0,
 			item_name: '',
 			calories: 0
-		},
+		}
 	});
 })();

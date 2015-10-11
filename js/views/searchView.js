@@ -22,16 +22,17 @@ var app = app || {};
 			this.$searchResults = this.$('#searchResults');
 			this.$list = $('#search-list');
 
-			this.listenTo(app.searchItems, 'add', this.addOne);
-			this.listenTo(app.searchItems, 'reset', this.addAll);
-			this.listenTo(app.searchItems, 'all', this.render);
+			this.listenTo(app.searchItemsCollection, 'add', this.addOne);
+			this.listenTo(app.searchItemsCollection, 'reset', this.addAll);
+			this.listenTo(app.searchItemsCollection, 'all', this.render);
 
+			//app.searchItemsCollection.fetch({reset: true});
 		},
 
 		// Re-rendering the App just means refreshing the statistics -- the rest
 		// of the app doesn't change.
 		render: function () {
-			if (app.searchItems.length) {
+			if (app.searchItemsCollection.length) {
 				this.$searchResults.show();
 			} else {
 				this.$searchResults.hide();
@@ -48,7 +49,7 @@ var app = app || {};
 		// Add all items in the **Todos** collection at once.
 		addAll: function () {
 			this.$list.html('');
-			app.searchItems.each(this.addOne, this);
+			app.searchItemsCollection.each(this.addOne, this);
 		},
 
 		// Generate the attributes for a new Search Item.
@@ -61,7 +62,7 @@ var app = app || {};
 		        	var prArray = response.hits;
 		        	if (prArray.length) {
 			        	for (var item in prArray) {
-							app.searchItems.create({
+							app.searchItemsCollection.create({
 								brand_id: prArray[item].fields.brand_id,
 			        			brand_name: prArray[item].fields.brand_name,
 			        			item_id: prArray[item].fields.item_id,
@@ -71,7 +72,7 @@ var app = app || {};
 						}
 		        	} else {
 		        		$('#searchResults').show();
-		        		$('#search-list').append('<li><div class=\'view\'><label id="product">0 items found. Try again, please</label></div></li>');
+		        		$('#search-list').append('<li><div class=\'view\'><label id="product">No results for this query. Try again, please, with new query</label></div></li>');
 		        	}
 		        	//return products;
 		        },
@@ -85,7 +86,7 @@ var app = app || {};
 	    keyPressedInSearch: function (e) {
 	    	var searchQuery = this.$search.val().trim();
 	        if (e.keyCode === ENTER_KEY && searchQuery) {
-	        	app.searchItems.reset();
+	        	app.searchItemsCollection.reset();
 	        	this.searchProducts(searchQuery);
 	        	this.$search.val('');
 			} else if (e.keyCode === ESC_KEY && searchQuery) {
