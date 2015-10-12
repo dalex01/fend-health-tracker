@@ -41,6 +41,7 @@ var app = app || {};
 				brand_name: this.model.get('brand_name'),
 				calories: this.model.get('calories')
 			});
+			app.searchItemsCollection.reset();
 		}
 
 	});
