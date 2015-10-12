@@ -356,7 +356,7 @@ input[type="checkbox"] {
 	color: #d66;
 }
 
-#search-list li .destroy,
+#products-list li .destroy,
 #search-list li .edit-btn,
 #search-list li .priority-btn {
 	display: none;
@@ -381,7 +381,7 @@ input[type="checkbox"] {
 	right: 65px;
 }
 
-#search-list li .destroy:hover,
+#products-list li .destroy:hover,
 #search-list li .edit-btn:hover,
 #search-list li .priority-btn:hover {
 	text-shadow: 0 0 1px #000,
@@ -390,7 +390,7 @@ input[type="checkbox"] {
 	transform: scale(1.3);
 }
 
-#search-list li .destroy:after {
+#products-list li .destroy:after {
 	content: '✖';
 }
 
@@ -402,7 +402,7 @@ input[type="checkbox"] {
 	content: '!';
 }
 
-#search-list li:hover .destroy,
+#products-list li:hover .destroy,
 #search-list li:hover .edit-btn,
 #search-list li:hover .priority-btn {
 	display: block;

@@ -34,13 +34,22 @@
     </section>
   </section>
 
-    <script type="text/template" id="item-template">
-      <div class="view">
-        <label id="product">Product: <%- item_name %></label>
-        <label id="brand">Brand: <%- brand_name %></label>
-        <label id="calories">Calories: <%- calories %></label>
-      </div>
-    </script>
+  <script type="text/template" id="searchitem-template">
+    <div class="view">
+      <label id="product">Product: <%- item_name %></label>
+      <label id="brand">Brand: <%- brand_name %></label>
+      <label id="calories">Calories: <%- calories %></label>
+    </div>
+  </script>
+
+  <script type="text/template" id="productitem-template">
+    <div class="view">
+      <label id="product">Product: <%- item_name %></label>
+      <button class="destroy"></button>
+      <label id="brand">Brand: <%- brand_name %></label>
+      <label id="calories">Calories: <%- calories %></label>
+    </div>
+  </script>
 
   <script type="text/template" id="stats-template"></script>
   <script src="js/lib/jquery.min.js"></script>

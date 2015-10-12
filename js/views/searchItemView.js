@@ -13,7 +13,7 @@ var app = app || {};
 		tagName:  'li',
 
 		// Cache the template function for a single item.
-		template: _.template($('#item-template').html()),
+		template: _.template($('#searchitem-template').html()),
 
 		// The DOM events specific to an item.
 		events: {
