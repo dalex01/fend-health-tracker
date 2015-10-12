@@ -16,6 +16,14 @@ var app = app || {};
 		// Save all of the todo items under the `"todos"` namespace.
 		localStorage: new Backbone.LocalStorage('calories-backbone'),
 
+		// Filter down the list to only todo items that are still not finished.
+		calculateTotal: function () {
+			var sum = 0;
+			this.each(function(model) {
+				sum += model.get('calories');
+			});
+			return sum;
+		},
 	});
 
 	// Create our global collection of **Todos**.

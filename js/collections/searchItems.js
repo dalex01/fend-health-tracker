@@ -14,7 +14,7 @@ var app = app || {};
 		model: app.SearchItemModel,
 
 		// Save all of the todo items under the `"todos"` namespace.
-		localStorage: new Backbone.LocalStorage('calories-backbone'),
+		localStorage: new Backbone.LocalStorage('calories-backbone')
 
 	});
 

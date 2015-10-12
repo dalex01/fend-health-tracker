@@ -72,7 +72,7 @@ var app = app || {};
 						}
 		        	} else {
 		        		$('#searchResults').show();
-		        		$('#search-list').append('<li><div class=\'view\'><label id="product">No results for this query. Try again, please, with new query</label></div></li>');
+		        		$('#search-list').append('<li><div class=\'view\'><label id="product">No results for this query. Try again, please, with new one</label></div></li>');
 		        	}
 		        	//return products;
 		        },
