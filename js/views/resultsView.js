@@ -29,7 +29,7 @@ var app = app || {};
 			this.listenTo(app.resultsItemsCollection, 'all', this.render);
 			this.listenTo(app.resultsItemsCollection, 'remove', this.render);
 
-			//app.resultsItemsCollection.fetch({reset: true});
+			app.resultsItemsCollection.fetch({reset: true});
 		},
 
 		// Re-rendering the App just means refreshing the statistics -- the rest
