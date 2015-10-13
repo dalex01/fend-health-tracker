@@ -21,6 +21,7 @@ var app = app || {};
 			this.$searchMain = this.$('#searchMain');
 			this.$searchResults = this.$('#searchResults');
 			this.$list = $('#search-list');
+			this.$loading = $('#loading');
 
 			this.listenTo(app.searchItemsCollection, 'add', this.addOne);
 			this.listenTo(app.searchItemsCollection, 'reset', this.addAll);
@@ -54,6 +55,11 @@ var app = app || {};
 
 		// Generate the attributes for a new Search Item.
 		searchProducts: function (e) {
+
+			var self = this;
+		    self.$searchResults.show();
+		    self.$loading.show();
+
 			var url = "https://api.nutritionix.com/v1_1/search/" + e + "?results=0%3A20&cal_min=0&cal_max=20&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id%2Cnf_calories&appId=9d3343d7&appKey=4283cbc03da532a49ad58e0048e9418f"
 			$.ajax({
 		        url: url,
@@ -70,11 +76,12 @@ var app = app || {};
 			        			calories: prArray[item].fields.nf_calories
 							});
 						}
+						self.$loading.hide();
 		        	} else {
-		        		$('#searchResults').show();
-		        		$('#search-list').append('<li><div class=\'view\'><label id="product">No results for this query. Try again, please, with new one</label></div></li>');
+		        		self.$loading.hide();
+		        		self.$searchResults.show();
+		        		self.$list.append('<li><div class=\'view\'><label id="product">No results for this query. Try again, please.</label></div></li>');
 		        	}
-		        	//return products;
 		        },
 		        error: function (xhr, ajaxOptions, thrownError) {
 		        	// alert if ajax request was not executed correctly

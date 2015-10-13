@@ -727,3 +727,14 @@ hr {
 :-ms-input-placeholder {
    text-align:center;
 }
+
+#loading {
+	display: none;
+	text-align: center;
+	font-size: 1.3em;
+	white-space: pre;
+	word-break: break-word;
+	padding: 30px 60px 2px 15px;
+	margin-left: 45px;
+	line-height: 1.2;
+}
