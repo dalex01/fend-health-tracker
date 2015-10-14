@@ -4,18 +4,21 @@ var app = app || {};
 (function ($) {
 	'use strict';
 
-	// The Application
+	// The Search View
 	// ---------------
 
-	// Our overall **AppView** is the top-level piece of UI.
+	// Our overall SearchView is the top-level piece of search UI.
 	app.SearchView = Backbone.View.extend({
 
-	    el: $("#search"), // DOM элемент widget'а
+	    el: $("#search"), // DOM element
 
+	    // The DOM event specific for the search view
 	    events: {
-	        'keyup #new-search': 'keyPressedInSearch'
+	        'keyup #new-search': 'keyPressedInSearch' // search entered query if ENTER is pressed in search input
 	    },
 
+	    // At initialization we bind to the relevant events on the `searchItemsCollection`
+		// collection, when items are added or changed.
 		initialize: function () {
 			this.$search = $('#new-search');
 			this.$searchMain = this.$('#searchMain');
@@ -26,12 +29,9 @@ var app = app || {};
 			this.listenTo(app.searchItemsCollection, 'add', this.addOne);
 			this.listenTo(app.searchItemsCollection, 'reset', this.addAll);
 			this.listenTo(app.searchItemsCollection, 'all', this.render);
-
-			//app.searchItemsCollection.fetch({reset: true});
 		},
 
-		// Re-rendering the App just means refreshing the statistics -- the rest
-		// of the app doesn't change.
+		// Re-rendering the SearchView just means show/hide results of the search
 		render: function () {
 			if (app.searchItemsCollection.length) {
 				this.$searchResults.show();
@@ -40,23 +40,24 @@ var app = app || {};
 			}
 		},
 
-		// Add a single todo item to the list by creating a view for it, and
+		// Add a single search item to the list by creating a view for it, and
 		// appending its element to the `<ul>`.
 		addOne: function (item) {
 			var view = new app.SearchItemView({ model: item });
 			this.$list.append(view.render().el);
 		},
 
-		// Add all items in the **Todos** collection at once.
+		// Add all items in the 'searchItemsCollection' collection at once.
 		addAll: function () {
 			this.$list.html('');
 			app.searchItemsCollection.each(this.addOne, this);
 		},
 
-		// Generate the attributes for a new Search Item.
+		// Query search results via API and create new search models according to received response.
 		searchProducts: function (e) {
 
 			var self = this;
+			// Show 'Loading...' notification
 		    self.$searchResults.show();
 		    self.$loading.show();
 
@@ -66,6 +67,7 @@ var app = app || {};
 		        dataType: 'json',
 		        success: function(response) {
 		        	var prArray = response.hits;
+		        	// If search return results
 		        	if (prArray.length) {
 			        	for (var item in prArray) {
 							app.searchItemsCollection.create({
@@ -76,9 +78,13 @@ var app = app || {};
 			        			calories: prArray[item].fields.nf_calories
 							});
 						}
+						// Hide 'Loading...' notification when everything is loaded
 						self.$loading.hide();
+					// Else if search don't find anything
 		        	} else {
+		        		// Hide 'Loading...' notification when everything is loaded
 		        		self.$loading.hide();
+		        		// Show notification that nothing is found
 		        		self.$searchResults.show();
 		        		self.$list.append('<li><div class=\'view\'><label id="product">No results for this query. Try again, please.</label></div></li>');
 		        	}
@@ -90,12 +96,14 @@ var app = app || {};
 			});
 		},
 
+		// Handle keyup event for ENTER or ESC keys
 	    keyPressedInSearch: function (e) {
 	    	var searchQuery = this.$search.val().trim();
+	    	// Request search results via API if ENETER is pressed in search input and search query is not empty
 	        if (e.keyCode === ENTER_KEY && searchQuery) {
-	        	app.searchItemsCollection.reset();
 	        	this.searchProducts(searchQuery);
 	        	this.$search.val('');
+	       	// Else clear search input if ESC key is pressed and search query is not empty
 			} else if (e.keyCode === ESC_KEY && searchQuery) {
 				this.$search.val('');
 			}

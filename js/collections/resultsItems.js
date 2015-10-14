@@ -4,19 +4,19 @@ var app = app || {};
 (function () {
 	'use strict';
 
-	// Todo Collection
-	// ---------------
+	// Chosen products Collection
+	// --------------------------
 
-	// The collection of todos is backed by *localStorage* instead of a remote
-	// server.
+	// The collection of chosen producst
 	var ResultsItemsCollection = Backbone.Collection.extend({
+
 		// Reference to this collection's model.
 		model: app.ResultsItemModel,
 
-		// Save all of the todo items under the `"todos"` namespace.
+		// Save all of the todo items under the 'calories-backbone' namespace.
 		localStorage: new Backbone.LocalStorage('calories-backbone'),
 
-		// Filter down the list to only todo items that are still not finished.
+		// Calcuate total number of calories for chosen products.
 		calculateTotal: function () {
 			var sum = 0;
 			this.each(function(model) {
@@ -26,6 +26,6 @@ var app = app || {};
 		},
 	});
 
-	// Create our global collection of **Todos**.
+	// Create our global collection of chosen products.
 	app.resultsItemsCollection = new ResultsItemsCollection();
 })();

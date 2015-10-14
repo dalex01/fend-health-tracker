@@ -4,25 +4,22 @@ var app = app || {};
 (function ($) {
 	'use strict';
 
-	// The Application
-	// ---------------
+	// The Products List View
+	// ----------------------
 
-	// Our overall **AppView** is the top-level piece of UI.
+	// Our overall ResultsView is the top-level piece of products list UI.
 	app.ResultsView = Backbone.View.extend({
 
-	    el: $("#list"), // DOM элемент widget'а
+	    el: $("#list"), // DOM element
 
-	    events: {
-	    },
-
+		// At initialization we bind to the relevant events on the `resultsItemsCollection`
+		// collection, when items are added or changed. Kick things off by
+		// loading any preexisting products that might be saved in *localStorage*.
 		initialize: function () {
 			this.$list = $('#products-list');
 			this.$main = $('#main');
 			this.$total = $('#total');
 			this.$totalCount = $('.totalCount');
-
-			this.$main.hide();
-			this.$total.hide();
 
 			this.listenTo(app.resultsItemsCollection, 'add', this.addOne);
 			this.listenTo(app.resultsItemsCollection, 'reset', this.addAll);
@@ -32,22 +29,21 @@ var app = app || {};
 			app.resultsItemsCollection.fetch({reset: true});
 		},
 
-		// Re-rendering the App just means refreshing the statistics -- the rest
-		// of the app doesn't change.
+		// Re-rendering product list just means refreshing the statistics of total calories
 		render: function () {
+			// Calculate total calories if product list is not empty
 			if (app.resultsItemsCollection.length) {
-				//console.log(app.resultsItemsCollection.calculateTotal());
-				//console.log(this.$totalCount);
 				this.$totalCount.html(app.resultsItemsCollection.calculateTotal());
 				this.$main.show();
 				this.$total.show();
+			// Hide total statistics if product list if empty
 			} else {
 				this.$main.hide();
 				this.$total.hide();
 			}
 		},
 
-		// Add a single todo item to the list by creating a view for it, and
+		// Add a single product item to the list by creating a view for it, and
 		// appending its element to the `<ul>`.
 		addOne: function (item) {
 			var view = new app.ResultsItemView({ model: item });
@@ -55,11 +51,10 @@ var app = app || {};
 			this.$totalCount.html('app.resultsItemsCollection.calculateTotal()');
 		},
 
-		// Add all items in the **Todos** collection at once.
+		// Add all items in the 'resultsItemsCollection' collection at once.
 		addAll: function () {
 			this.$list.html('');
 			app.resultsItemsCollection.each(this.addOne, this);
-			this.$totalCount.html(app.resultsItemsCollection.calculateTotal());
 		}
 	});
 })(jQuery);

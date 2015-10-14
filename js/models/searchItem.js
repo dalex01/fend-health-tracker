@@ -4,13 +4,12 @@ var app = app || {};
 (function () {
 	'use strict';
 
-	// Todo Model
-	// ----------
+	// Search Model
+	// ------------
 
-	// Our basic **Todo** model has `title`, `order`, and `completed` attributes.
+	// Our basic Search model has 'brand_id', 'brand_name', 'item_id', 'item_name' and 'calories' attributes.
 	app.SearchItemModel = Backbone.Model.extend({
-		// Default attributes for the todo
-		// and ensure that each todo created has `title` and `completed` keys.
+		// Default attributes for the search
 		defaults: {
 			brand_id: 0,
 			brand_name: '',

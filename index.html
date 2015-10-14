@@ -7,11 +7,18 @@
   <link rel="stylesheet" href="assets/index.css">
 </head>
 <body>
+
   <section id="app">
+
+    <!-- Header section-->
     <header id="header">
       <h1>Calculate Calories</h1>
     </header>
+
+    <!-- Main data container -->
     <section class="container">
+
+      <!-- Search list -->
       <section id = "search" class="box left">
         <header id = "searchMain">
           <input id="new-search" placeholder="Search product" autofocus>
@@ -21,9 +28,11 @@
           <ul id="search-list"></ul>
         </section>
       </section>
+
+      <!-- Chosen products list -->
       <section id = "list" class="box right">
         <header id = "listMain">
-          <label id="title">Choosed Products</label>
+          <label id="title">Chosen Products</label>
         </header>
         <section id = "main">
           <ul id="products-list"></ul>
@@ -32,9 +41,11 @@
           Total: <span class="totalCount">0</span>
         </section>
       </section>
+
     </section>
   </section>
 
+  <!-- Template for search results -->
   <script type="text/template" id="searchitem-template">
     <div class="view">
       <label id="product">Product: <%- item_name %></label>
@@ -43,6 +54,7 @@
     </div>
   </script>
 
+  <!-- Template for chosen products results -->
   <script type="text/template" id="productitem-template">
     <div class="view">
       <label id="product">Product: <%- item_name %></label>
