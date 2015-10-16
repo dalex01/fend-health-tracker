@@ -61,7 +61,7 @@ var app = app || {};
 		    self.$searchResults.show();
 		    self.$loading.show();
 
-			var url = "https://api.nutritionix.com/v1_1/search/" + e + "?results=0%3A20&cal_min=0&cal_max=20&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id%2Cnf_calories&appId=9d3343d7&appKey=4283cbc03da532a49ad58e0048e9418f"
+			var url = "https://api.nutritionix.com/v1_1/search/" + e + "?results=0%3A20&cal_min=0&cal_max=20&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id%2Cnf_calories&appId=9d3343d7&appKey=4283cbc03da532a49ad58e0048e9418f";
 			$.ajax({
 		        url: url,
 		        dataType: 'json',
