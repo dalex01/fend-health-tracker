@@ -121,7 +121,7 @@ body {
 	/*padding: 6px;*/
 	border: 1px solid #999;
 	box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
-	padding: 16px 16px 16px 60px;
+	padding: 16px 16px 53px 60px;
 	border: none;
 	background: rgba(0, 0, 0, 0.00);
 	z-index: 2;
@@ -137,12 +137,13 @@ body {
 	font-smoothing: antialiased;
 }
 
-#searchMain {
+#search {
 	border-right: 1px dotted #6A6A6A;
 	border-bottom: 1px dotted #ccc;
 }
 
-#main {
+#main,
+#searchResults {
 	position: relative;
 	z-index: 2;
 	border-top: 1px dotted #adadad;
@@ -153,14 +154,6 @@ body {
 	margin: 0;
 	padding: 0;
 	list-style: none;
-}
-
-#products-list {
-	border-left: 1px dotted #6A6A6A;
-}
-
-#search-list{
-	border-right: 1px dotted #6A6A6A;
 }
 
 #search-list li,
@@ -207,11 +200,16 @@ body {
 	text-align: center;
 }
 
+#date {
+	text-align: center;
+	margin: 0;
+	padding-bottom: 1em;
+}
+
 #total {
 	font-size: 1.7em;
 	padding: 0px 85px 15px 15px;
 	text-align: center;
-	border-left: 1px dotted #6A6A6A;
 	margin-left: 0;
 }
 
@@ -277,6 +275,6 @@ body {
 	}
 
 	.left, .right {
-  		width: 50%;
+  		width: 49%;
 	}
 }

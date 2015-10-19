@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Backbone.js • TodoMVC</title>
+  <link rel="stylesheet" href="assets/jquery-ui.min.css">
   <link rel="stylesheet" href="assets/index.css">
 </head>
 <body>
@@ -33,6 +34,7 @@
       <section id = "list" class="box right">
         <header id = "listMain">
           <label id="title">Chosen Products</label>
+          <p id="date">Date: <input type="text" id="datepicker"></p>
         </header>
         <section id = "main">
           <ul id="products-list"></ul>
@@ -65,6 +67,7 @@
   </script>
 
   <script src="js/lib/jquery.min.js"></script>
+  <script src="js/lib/jquery-ui.min.js"></script>
   <script src="js/lib/underscore-min.js"></script>
   <script src="js/lib/backbone-min.js"></script>
   <script src="js/lib/backbone.localStorage-min.js"></script>

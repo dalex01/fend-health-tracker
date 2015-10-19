@@ -20,6 +20,7 @@ var app = app || {};
 			this.$main = $('#main');
 			this.$total = $('#total');
 			this.$totalCount = $('.totalCount');
+			this.$datepicker = $("#datepicker")
 
 			this.listenTo(app.resultsItemsCollection, 'add', this.addOne);
 			this.listenTo(app.resultsItemsCollection, 'reset', this.addAll);
@@ -41,6 +42,7 @@ var app = app || {};
 				this.$main.hide();
 				this.$total.hide();
 			}
+			this.$datepicker.datepicker();
 		},
 
 		// Add a single product item to the list by creating a view for it, and
