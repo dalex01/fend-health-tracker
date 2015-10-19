@@ -13,8 +13,8 @@ var app = app || {};
 		// Reference to this collection's model.
 		model: app.SearchItemModel,
 
-		// Save all of the todo items under the 'calories-backbone' namespace.
-		localStorage: new Backbone.LocalStorage('calories-backbone')
+		// Save all of the found items under the 'searchcalories-backbone' namespace.
+		localStorage: new Backbone.LocalStorage('searchcalories-backbone')
 
 	});
 

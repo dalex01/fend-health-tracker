@@ -69,7 +69,7 @@ var app = app || {};
 		        	var prArray = response.hits;
 		        	// If search return results
 		        	if (prArray.length) {
-			        	for (var item in prArray) {
+			        	for (var item = 0; item < prArray.length; item++) {
 							app.searchItemsCollection.create({
 								brand_id: prArray[item].fields.brand_id,
 			        			brand_name: prArray[item].fields.brand_name,
