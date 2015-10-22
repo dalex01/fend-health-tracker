@@ -6,29 +6,19 @@ var app = app || {};
 
     var AppRouter = Backbone.Router.extend({
         routes: {
-        /*    "": "start", // Empty hash-tag
-            "!/": "start", // First page
-            "!/success": "success", // Блок удачи
-            "!/error": "error" // Блок ошибки*/
-        }
-    /*
-        start: function () {
-            $(".block").hide(); // Hide all blocks
-            $("#start").show(); // SHow required
+            '*filter': 'setFilter'
         },
 
-        success: function () {
-            $(".block").hide();
-            $("#success").show();
-        },
-
-        error: function () {
-            $(".block").hide();
-            $("#error").show();
+        setFilter: function (param) {
+            // Set the current filter to be used
+            app.AppFilter = param || '';
+            //console.log('in setFilter');
+            //console.log(app.AppFilter);
+            // Trigger a collection filter event
+            app.resultsItemsCollection.trigger('filter');
         }
-    */
     });
 
-    var router = new AppRouter(); // Create Controller
+    app.AppRouter = new AppRouter(); // Create Router
     Backbone.history.start();  // HTML5 History push
 })();
