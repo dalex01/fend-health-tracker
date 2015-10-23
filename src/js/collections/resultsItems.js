@@ -13,15 +13,15 @@ var app = app || {};
 		// Reference to this collection's model.
 		model: app.ResultsItemModel,
 
-		// Save all of the todo items under the 'calories-backbone' namespace.
-		localStorage: new Backbone.LocalStorage('calories-backbone'),
+		// Save all of the chosen items under the 'resultscalories-backbone' namespace.
+		localStorage: new Backbone.LocalStorage('resultscalories-backbone'),
 
 		// Calcuate total number of calories for chosen products.
 		calculateTotal: function () {
 			var sum = 0;
 			this.each(function(model) {
-				sum += model.get('calories');
-			});
+                sum += model.get('calories');
+            });
 			return sum;
 		},
 	});

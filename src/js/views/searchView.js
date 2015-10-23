@@ -69,13 +69,14 @@ var app = app || {};
 		        	var prArray = response.hits;
 		        	// If search return results
 		        	if (prArray.length) {
-			        	for (var item in prArray) {
+			        	for (var item = 0; item < prArray.length; item++) {
 							app.searchItemsCollection.create({
 								brand_id: prArray[item].fields.brand_id,
 			        			brand_name: prArray[item].fields.brand_name,
 			        			item_id: prArray[item].fields.item_id,
 			        			item_name: prArray[item].fields.item_name,
-			        			calories: prArray[item].fields.nf_calories
+			        			calories: prArray[item].fields.nf_calories,
+			        			date: Date.now()
 							});
 						}
 						// Hide 'Loading...' notification when everything is loaded

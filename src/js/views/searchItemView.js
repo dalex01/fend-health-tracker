@@ -33,7 +33,8 @@ var app = app || {};
 				item_name: this.model.get('item_name'),
 				brand_id: this.model.get('brand_id'),
 				brand_name: this.model.get('brand_name'),
-				calories: this.model.get('calories')
+				calories: this.model.get('calories'),
+				date: this.model.get('date')
 			});
 			app.searchItemsCollection.reset();
 		}

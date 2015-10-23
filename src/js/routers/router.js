@@ -1,4 +1,6 @@
 /*global Backbone, jQuery, _, ENTER_KEY */
+/* File is not used and created for future development */
+/*
 var app = app || {};
 
 (function ($) {
@@ -6,29 +8,10 @@ var app = app || {};
 
     var AppRouter = Backbone.Router.extend({
         routes: {
-        /*    "": "start", // Empty hash-tag
-            "!/": "start", // First page
-            "!/success": "success", // Блок удачи
-            "!/error": "error" // Блок ошибки*/
-        }
-    /*
-        start: function () {
-            $(".block").hide(); // Hide all blocks
-            $("#start").show(); // SHow required
-        },
 
-        success: function () {
-            $(".block").hide();
-            $("#success").show();
-        },
-
-        error: function () {
-            $(".block").hide();
-            $("#error").show();
         }
-    */
     });
 
-    var router = new AppRouter(); // Create Controller
+    app.AppRouter = new AppRouter(); // Create Router
     Backbone.history.start();  // HTML5 History push
-})();
+})();*/

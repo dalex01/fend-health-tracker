@@ -48,7 +48,6 @@ var app = app || {};
 		addOne: function (item) {
 			var view = new app.ResultsItemView({ model: item });
 			this.$list.append(view.render().el);
-			this.$totalCount.html('app.resultsItemsCollection.calculateTotal()');
 		},
 
 		// Add all items in the 'resultsItemsCollection' collection at once.
