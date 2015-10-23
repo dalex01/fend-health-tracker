@@ -17,7 +17,6 @@ var sourcemaps = require('gulp-sourcemaps');
 var dest = 'build/';
 var paths = {
     libs: ['bower_components/jquery/dist/jquery.min.js',
-           'bower_components/jquery-ui/jquery-ui.min.js',
            'bower_components/underscore/underscore-min.js',
            'bower_components/backbone/backbone-min.js',
            'bower_components/backbone.localStorage/backbone.localStorage-min.js'],
@@ -31,8 +30,7 @@ var paths = {
               'src/js/views/resultsView.js',
               'src/js/routers/router.js',
               'src/js/app.js'],
-    styles: ['src/assets/index.css',
-             'bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css'],
+    styles: ['src/assets/index.css'],
     images: ['src/img/*'],
     content: ['src/index.html']
 };

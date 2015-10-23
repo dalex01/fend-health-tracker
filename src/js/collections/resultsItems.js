@@ -19,22 +19,9 @@ var app = app || {};
 		// Calcuate total number of calories for chosen products.
 		calculateTotal: function () {
 			var sum = 0;
-			var filterDate = new Date(app.AppFilter);
-			filterDate.year = filterDate.getFullYear();
-			filterDate.month = filterDate.getMonth();
-			filterDate.day = filterDate.getDate();
-
-
 			this.each(function(model) {
-
-				var date = new Date(model.get('date'));
-				date.year = date.getFullYear();
-				date.month = date.getMonth();
-				date.day = date.getDate();
-
-				if (date.year === filterDate.year && date.month === filterDate.month && date.day === filterDate.day)
-					sum += model.get('calories');
-			});
+                sum += model.get('calories');
+            });
 			return sum;
 		},
 	});
