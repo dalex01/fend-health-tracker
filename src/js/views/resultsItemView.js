@@ -36,8 +36,6 @@ var app = app || {};
 		},
 
 		toggleVisible: function () {
-			//console.log(this.$el);
-			//this.$el.toggleClass('hidden', this.isHidden());
 			var date = new Date(this.model.get('date'));
 			date.year = date.getFullYear();
 			date.month = date.getMonth();
@@ -47,14 +45,10 @@ var app = app || {};
 			filterDate.year = filterDate.getFullYear();
 			filterDate.month = filterDate.getMonth();
 			filterDate.day = filterDate.getDate();
-			//console.log(date);
-			//console.log(filterDate);
 			if (date.year !== filterDate.year || date.month !== filterDate.month || date.day !== filterDate.day) {
-				console.log('in if');
 				this.$el.addClass('hidden');
 			}
 			else {//if (date.year === filterDate.year && date.month === filterDate.month && date.day === filterDate.day) {
-				console.log('in else');
 				this.$el.removeClass('hidden');
 			}
 		},

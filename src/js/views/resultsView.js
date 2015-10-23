@@ -39,7 +39,6 @@ var app = app || {};
 		    })
 		    .change(function() {
 			    window.location.href = '#' + this.value;
-			    //this.navigate(this.value);
 		    });
 			this.$datepicker.datepicker("setDate", Date.now());
 			app.resultsItemsCollection.fetch({reset: true});
@@ -88,12 +87,10 @@ var app = app || {};
 		},
 
 		filterOne: function (product) {
-			//console.log('in filterOne')
 			product.trigger('visible');
 		},
 
 		filterAllDates: function() {
-			//console.log('in filterAllDates')
 			app.resultsItemsCollection.each(this.filterOne, this);
 		}
 	});

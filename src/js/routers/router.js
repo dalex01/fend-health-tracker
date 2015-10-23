@@ -12,8 +12,7 @@ var app = app || {};
         setFilter: function (param) {
             // Set the current filter to be used
             app.AppFilter = param || '';
-            //console.log('in setFilter');
-            //console.log(app.AppFilter);
+
             // Trigger a collection filter event
             app.resultsItemsCollection.trigger('filter');
         }

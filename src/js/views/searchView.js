@@ -26,7 +26,6 @@ var app = app || {};
 			this.$list = $('#search-list');
 			this.$loading = $('#loading');
 			this.$datepicker = $("#datepicker");
-			//console.log(this.$datepicker.val());
 
 			this.listenTo(app.searchItemsCollection, 'add', this.addOne);
 			this.listenTo(app.searchItemsCollection, 'reset', this.addAll);

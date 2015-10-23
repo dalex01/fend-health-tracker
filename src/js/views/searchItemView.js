@@ -32,7 +32,6 @@ var app = app || {};
 
 		// Add clicked search item to product list (collection) and clear search results
 		addProduct: function () {
-			//console.log(this.$datepicker.val());
 			app.resultsItemsCollection.create({
 				item_id: this.model.get('item_id'),
 				item_name: this.model.get('item_name'),
