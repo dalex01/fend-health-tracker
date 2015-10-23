@@ -10,9 +10,8 @@ var app = app || {};
         routes: {
 
         }
-
     });
 
-    var router = new AppRouter(); // Create Controller
+    app.AppRouter = new AppRouter(); // Create Router
     Backbone.history.start();  // HTML5 History push
 })();

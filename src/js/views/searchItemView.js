@@ -20,6 +20,10 @@ var app = app || {};
 			'click .view': 'addProduct' // if search item is clicked it should be added to product list
 		},
 
+		//initialize: function() {
+		//	this.$datepicker = $("#datepicker");
+		//},
+
 		// Re-render the the search item.
 		render: function () {
 			this.$el.html(this.template(this.model.toJSON()));
@@ -28,12 +32,14 @@ var app = app || {};
 
 		// Add clicked search item to product list (collection) and clear search results
 		addProduct: function () {
+			//console.log(this.$datepicker.val());
 			app.resultsItemsCollection.create({
 				item_id: this.model.get('item_id'),
 				item_name: this.model.get('item_name'),
 				brand_id: this.model.get('brand_id'),
 				brand_name: this.model.get('brand_name'),
-				calories: this.model.get('calories')
+				calories: this.model.get('calories'),
+				date: this.model.get('date')
 			});
 			app.searchItemsCollection.reset();
 		}

@@ -15,7 +15,8 @@ var app = app || {};
 			brand_name: '',
 			item_id: 0,
 			item_name: '',
-			calories: 0
+			calories: 0,
+			date: null
 		},
 	});
 })();

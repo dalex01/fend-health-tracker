@@ -25,6 +25,8 @@ var app = app || {};
 			this.$searchResults = this.$('#searchResults');
 			this.$list = $('#search-list');
 			this.$loading = $('#loading');
+			this.$datepicker = $("#datepicker");
+			//console.log(this.$datepicker.val());
 
 			this.listenTo(app.searchItemsCollection, 'add', this.addOne);
 			this.listenTo(app.searchItemsCollection, 'reset', this.addAll);
@@ -57,6 +59,7 @@ var app = app || {};
 		searchProducts: function (e) {
 
 			var self = this;
+			var chosenDate = this.$datepicker.val();
 			// Show 'Loading...' notification
 		    self.$searchResults.show();
 		    self.$loading.show();
@@ -75,7 +78,8 @@ var app = app || {};
 			        			brand_name: prArray[item].fields.brand_name,
 			        			item_id: prArray[item].fields.item_id,
 			        			item_name: prArray[item].fields.item_name,
-			        			calories: prArray[item].fields.nf_calories
+			        			calories: prArray[item].fields.nf_calories,
+			        			date: chosenDate
 							});
 						}
 						// Hide 'Loading...' notification when everything is loaded
